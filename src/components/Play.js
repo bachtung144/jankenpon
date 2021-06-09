@@ -102,9 +102,9 @@ function Play(props) {
             );
             setPlayerElement(
                 <div className="pick">
-                    <div className="result__desktop pick__title">You Picked {myPick}</div> 
-                    <div className={"pick__item " + (playerWins? "winner " : "") + setMyPickClass(myPick)} style={{backgroundImage: `url(${setMyPickIcon(myPick)}`}}></div>   
-                    <div className="result__mobile pick__title">You Picked {myPick}</div> 
+                    <div className="result__desktop pick__title">You Picked {myPick}</div>
+                    <div className={"pick__item " + (playerWins? "winner " : "") + setMyPickClass(myPick)} style={{backgroundImage: `url(${setMyPickIcon(myPick)}`}}></div>
+                    <div className="result__mobile pick__title">You Picked {myPick}</div>
                 </div>
             )
             showWinner();
@@ -114,18 +114,18 @@ function Play(props) {
 
     return (
         <div className="play-wrapper">
-            {playerPickElement? playerPickElement : 
+            {playerPickElement? playerPickElement :
                 <div className="pick">
-                    <div className="result__desktop pick__title">You Picked {myPick}</div> 
-                    <div className={"pick__item " + setMyPickClass(myPick)} style={{backgroundImage: `url(${setMyPickIcon(myPick)}`}}></div>   
-                    <div className="result__mobile pick__title">You Picked {myPick}</div> 
+                    <div className="result__desktop pick__title">You Picked {myPick}</div>
+                    <div className={"pick__item " + setMyPickClass(myPick)} style={{backgroundImage: `url(${setMyPickIcon(myPick)}`}}></div>
+                    <div className="result__mobile pick__title">You Picked {myPick}</div>
                 </div>
             }
             <div className={"result__desktop game__result " + (resultMessage.length? "" : "invisible")}>
                 <h3>{resultMessage}</h3>
                 <Link className="play-again__button " to="/" onClick={()=>(props.setHousePick())}>Play Again</Link>
             </div>
-            {housePickElement? housePickElement : 
+            {housePickElement? housePickElement :
                 <div className="pick">
                     <div className="pick__title result__desktop">The House Picked:</div>
                     <div className="pick__item" ><span>{countDown}</span></div>
