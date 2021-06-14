@@ -6,6 +6,7 @@ function Scorebox(props) {
             <div className="scorebox__title">Score</div>
             <div className="scorebox__score">{props.score}</div>
         </div>
+        
     )
 }
 

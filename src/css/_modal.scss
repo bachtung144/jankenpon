@@ -48,7 +48,26 @@ button {
     display: none;
   }
 }
+.btn-login {
+  border: 30px;
+  outline: none;
+  width: 30%;
+  padding: 15px 0;
+  color: radial-gradient(
+    ellipse at left bottom,
+    rgba(22, 24, 47, 1) 0%,
+    rgba(38, 20, 72, 0.9) 59%,
+    rgba(17, 27, 75, 0.9) 100%
+  );
+  font-size: 16px;
+  letter-spacing: 1px;
+  background: white;
+  cursor: pointer;
+}
 
+.text-left{
+  text-align: left;
+}
 @media screen and (max-width: 400px) {
   .modal-wrapper {
     .modal-inner {

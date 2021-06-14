@@ -1,5 +1,6 @@
 import React from "react";
 import Scorebox from "./Scorebox";
+import Logout from "./Auth/Logout"
 
 function Header(props) {
     return (
@@ -10,7 +11,10 @@ function Header(props) {
                 <span>Scissors</span>
             </h1>
             <Scorebox score={props.score}/>
+            <Logout handleLogout={props.handleLogout}/>
         </header>
+        
+        
     )
 }
 
