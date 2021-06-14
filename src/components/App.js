@@ -107,7 +107,7 @@ export default function App() {
     <Router>
     {user ? (
         <div className="wrapper">
-          <Header score={gameScore} handleLogout={handleLogout}/>
+          <Header score={gameScore} handleLogout={handleLogout} email = {user.email}/>
           <Switch className="main">
             <Route path="/play">
               <Play mine={myPick} house={housePick} score={gameScore} setScore={setGameScore} setHousePick={newHousePick}/>

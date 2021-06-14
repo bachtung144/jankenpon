@@ -11,7 +11,11 @@ function Header(props) {
                 <span>Scissors</span>
             </h1>
             <Scorebox score={props.score}/>
-            <Logout handleLogout={props.handleLogout}/>
+            <div>
+            {props.email}
+            <br />
+            <Logout handleLogout={props.handleLogout} email={props.email}/>
+            </div>
         </header>
         
         

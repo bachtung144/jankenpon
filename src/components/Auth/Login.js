@@ -21,23 +21,23 @@ const Login = (props) => {
       <h2>ROCK PAPER SCISSORS</h2>
       <label className="text-left">User Name</label>
       <input type="text" autoFocus required value={email} onChange={(e) => setEmail(e.target.value)} name=""/>
-      <p className="errorMsg">{emailError}</p>
+      <p className="errorMsg text-left">{emailError}</p>
       <label className="text-left">Password</label>
       <input type="password" required value={password} onChange={(e) => setPassword(e.target.value)} name=""/>
-      <p className="errorMsg">{passwordError}</p>
+      <p className="errorMsg text-left">{passwordError}</p>
       
       <div className="btnContainer">
         {hasAccount ? (
           <>
-            <button className="btn-login" onClick={handleLogin}>Signin</button>
+            <button className="btn-login" onClick={handleLogin}>SignIn</button>
             <p> Don't have an account? 
-            <span onClick={() => setHasAccount(!hasAccount) }>Signup</span></p>
+            <span onClick={() => setHasAccount(!hasAccount) }>SignUp</span></p>
           </>
         ) : (
           <>
-            <button className="btn-login" onClick={handleSignup}>Signup</button>
+            <button className="btn-login" onClick={handleSignup}>SignUp</button>
             <p> Have an account? 
-            <span onClick={() => setHasAccount(!hasAccount) }>Signin</span></p>
+            <span onClick={() => setHasAccount(!hasAccount) }>SignIn</span></p>
           </>
         )}
       </div>

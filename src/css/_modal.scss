@@ -39,7 +39,7 @@ button {
   border: none;
   align-self: center;
   color: $dark-text;
-
+  max-width: 100%;
   &:hover {
     cursor: pointer;
   }
