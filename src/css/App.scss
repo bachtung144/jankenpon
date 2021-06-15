@@ -24,3 +24,34 @@ body {
   align-items: center;
   padding: 0 20px;
 }
+
+.btn{
+  color: #fff;
+}
+
+.button {
+  width: 130px;
+  margin-top: 15px;
+
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  color: red;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-left: 10px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.button-1 {
+  background-color: transparent;
+  border: 3px solid #00d7c3;
+  border-radius: 50px;
+  -webkit-transition: all .15s ease-in-out;
+  transition: all .15s ease-in-out;
+}
+.button-1:hover {
+  box-shadow: 0 0 10px 0 #00d7c3 inset, 0 0 20px 2px #00d7c3;
+  border: 3px solid #00d7c3;
+}

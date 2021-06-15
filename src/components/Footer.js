@@ -16,8 +16,8 @@ function Footer() {
     return (
         <div>
             <footer>
-                <button onClick={toggle}>Rules</button>
-                <p className="footer__message">Made by team 7</p>
+                <button className="btn10" onClick={toggle}>Rules</button>
+                <p className="footer__message">Made by team 1</p>
             </footer>
             {/*{ showModal? (*/}
             {/*    <Modal>*/}

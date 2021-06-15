@@ -3,17 +3,15 @@ import React from "react";
 function Logout(props) {
     return (
     <div>
-        <div className="logout">
-            <button >History</button>
+        <div className="button button-1">
+            <button className="btn">Rank</button>
         </div>
-        <div className="logout">
-            <button onClick={props.handleLogout}>Logout</button>
+        <br/>
+        <div className="button button-1">
+            <button className="btn" onClick={props.handleLogout}>Logout</button>
         </div>
 
     </div>
-        
-        
-        
     )
 }
 
