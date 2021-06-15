@@ -1,5 +1,78 @@
 @import "_variables";
+body {
+  font-family: 'lato', sans-serif;
+}
+.container {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: black;
+}
 
+h2 {
+  font-size: 26px;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.responsive-table {
+  li {
+    border-radius: 3px;
+    padding: 15px 15px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+  }
+  .table-header {
+    background-color: #95A5A6;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  .table-row {
+    background-color: #ffffff;
+    box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
+  }
+  .col-1 {
+    flex-basis: 10%;
+  }
+  .col-2 {
+    flex-basis: 60%;
+  }
+  .col-3 {
+    flex-basis: 30%;
+  }
+  
+  @media all and (max-width: 767px) {
+    .table-header {
+      display: none;
+    }
+    .table-row{
+      
+    }
+    li {
+      display: block;
+    }
+    .col {
+      
+      flex-basis: 100%;
+      
+    }
+    .col {
+      display: flex;
+      padding: 10px 0;
+      &:before {
+        color: #6C7A89;
+        padding-right: 10px;
+        content: attr(data-label);
+        flex-basis: 50%;
+        text-align: right;
+      }
+    }
+  }
+}
 .modal-wrapper {
   position: absolute;
   height: 100vh;
@@ -39,7 +112,7 @@ button {
   border: none;
   align-self: center;
   color: $dark-text;
-
+  max-width: 100%;
   &:hover {
     cursor: pointer;
   }
@@ -48,7 +121,26 @@ button {
     display: none;
   }
 }
+.btn-login {
+  border: 30px;
+  outline: none;
+  width: 30%;
+  padding: 15px 0;
+  color: radial-gradient(
+    ellipse at left bottom,
+    rgba(22, 24, 47, 1) 0%,
+    rgba(38, 20, 72, 0.9) 59%,
+    rgba(17, 27, 75, 0.9) 100%
+  );
+  font-size: 16px;
+  letter-spacing: 1px;
+  background: white;
+  cursor: pointer;
+}
 
+.text-left{
+  text-align: left;
+}
 @media screen and (max-width: 400px) {
   .modal-wrapper {
     .modal-inner {

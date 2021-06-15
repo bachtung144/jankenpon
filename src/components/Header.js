@@ -1,7 +1,11 @@
 import React from "react";
 import Scorebox from "./Scorebox";
+<<<<<<< HEAD
 import {firestore} from "../firebase/firebase";
 import Modal from 'react-modal';
+=======
+import Logout from "./Auth/Logout"
+>>>>>>> 56bacf01653e75da45c79046ac4728a8d2157252
 
 function Header(props) {
     const [modalIsOpen,setIsOpen] = React.useState(false);
@@ -48,6 +52,7 @@ function Header(props) {
                 <span>Paper</span>
                 <span>Scissors</span>
             </h1>
+<<<<<<< HEAD
             <Scorebox score={props.score}/>
             <button onClick={() => saveHistory()} style={{backgroundColor:'white'}}>
                 Save History
@@ -65,7 +70,17 @@ function Header(props) {
                 <div style={{backgroundColor:'red'}}>Score: {history?.score}</div>
                 <div style={{backgroundColor:'red'}}>Time : {history?.time}</div>
             </Modal>
+=======
+            <Scorebox score={props.score} saveScore={props.saveScore}/>
+            <div>
+            {props.email}
+            <br />
+            <Logout handleLogout={props.handleLogout} email={props.email} rank={props.rank} scoreMax={props.scoreMax}/>
+            </div>
+>>>>>>> 56bacf01653e75da45c79046ac4728a8d2157252
         </header>
+        
+        
     )
 }
 

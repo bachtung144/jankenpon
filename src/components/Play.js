@@ -47,13 +47,14 @@ function Play(props) {
 
         if (playerWins) {
             props.setScore(currentScore + 1);
-            setResultMessage("You Win");
+            setResultMessage("Win");
         } else if (houseWins) {
             props.setScore(currentScore - 1);
-            setResultMessage("You Lose");
+            setResultMessage("Lose");
         } else {
             setResultMessage("Draw");
         }
+        // props.saveScore(currentScore);
     }
 
     function setMyPickIcon(pick) {
