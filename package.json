@@ -8,7 +8,6 @@
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^13.1.9",
     "css-loader": "^5.2.6",
-    "firebase": "^8.6.7",
     "firebase": "^8.6.5",
     "node-sass": "^6.0.0",
     "react": "^17.0.2",

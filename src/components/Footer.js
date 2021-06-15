@@ -9,7 +9,6 @@ function Footer() {
         <div>
             <footer>
                 <button className="btn10" onClick={toggle}>Rules</button>
-                <button onClick={toggle}>Rules</button>
                 <p className="footer__message">Made by team 1</p>
             </footer>
             <Modal
