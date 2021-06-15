@@ -54,6 +54,7 @@ export default function App() {
   
   const handleSignup = () =>{
     clearError();
+    var check =0;
     fire 
       .auth()
       .createUserWithEmailAndPassword(email, password)
@@ -61,16 +62,27 @@ export default function App() {
         switch(err.code){
           case "auth/email-already-in-use":
           case "auth/invalid-email":
+            check++;
             setEmailError(err.message);
             break;
           case "auth/weak-password":
+            check++;
             setPasswordError(err.message);
             break;
         }
-      })
+      });
+    if(check == 0){
+      fire.firestore().collection('scores').doc(email).set({
+      Email: email,
+      Score: check
+    }); 
+    }
+    check=0;
   }
   
   const handleLogout = () => {
+    // setscoreMax(0);
+    setGameScore(0);
     fire.auth().signOut();
   };
   
@@ -92,25 +104,66 @@ export default function App() {
   const [myPick, setMyPick] = useState("");
   const [housePick, setHousePick] = useState("");
   const [gameScore, setGameScore] = useState(0);
-
+  const [scoreMax, setscoreMax] = useState(0); 
+  
   function newHousePick() {
     const choices = ["rock", "paper", "scissors"];
     const randomChoice = choices[Math.floor((Math.random()*3))];
     setHousePick(randomChoice);
   }
-
+  const saveScore = (C) => {
+    let max ;
+    fire.firestore().collection('scores').doc(user.email).get().then((doc) => {
+      max = doc.data();
+      setscoreMax(max.Score)
+    });
+    let maxScore = Number(scoreMax)
+    let cusScore = Number(C)
+    
+    console.log("Customer: ", cusScore, "maxScore :", maxScore);
+    if(cusScore > maxScore){
+    fire.firestore().collection('scores').doc(user.email).set({
+      Email: user.email,
+      Score: C
+    }); 
+    }
+  }
   useEffect(() => {
     newHousePick();
   },[setMyPick]);
+  
+  var [scores, setScores] = useState([{}])
+  
+  useEffect(() => {
+    const fetchData = fire.firestore().collection('scores')
+    .onSnapshot(snapshot => {
+        let List = []
+        let ListRank = []
+        snapshot.forEach(doc =>
+          List.push(doc.data()),
+        )
+        List.sort(function(a, b){return b.Score - a.Score});
+        for (var i =0; i<List.length; i++ ) {
+          if(i<5){
+          ListRank[i] = Object.assign({}, List[i],{id: i});
+          }
+        }
+        setScores(ListRank)
+    })
 
+    return () => {
+      fetchData()
+    }
+  }, [])
   return (
     <Router>
     {user ? (
         <div className="wrapper">
-          <Header score={gameScore} handleLogout={handleLogout} email = {user.email}/>
+          <Header score={gameScore} handleLogout={handleLogout} email = {user.email} rank = {scores} saveScore={saveScore} scoreMax={scoreMax}/>
+        
           <Switch className="main">
             <Route path="/play">
-              <Play mine={myPick} house={housePick} score={gameScore} setScore={setGameScore} setHousePick={newHousePick}/>
+              <Play mine={myPick} house={housePick} score={gameScore} setScore={setGameScore} setHousePick={newHousePick} saveScore={saveScore} />
             </Route>
             <Route path="/">
               <Home setPick={setMyPick} />
@@ -118,7 +171,6 @@ export default function App() {
           </Switch>
           <Footer />
         </div>
-      
       ) : (
       <div className="App">
         <Login 

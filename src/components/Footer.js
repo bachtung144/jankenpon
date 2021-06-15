@@ -19,20 +19,6 @@ function Footer() {
                 <button className="btn10" onClick={toggle}>Rules</button>
                 <p className="footer__message">Made by team 1</p>
             </footer>
-            {/*{ showModal? (*/}
-            {/*    <Modal>*/}
-            {/*        <div className="modal__header">*/}
-            {/*            <h1>Rules</h1>*/}
-            {/*            <button className="desktop__button" onClick={toggleModal}>*/}
-            {/*                <img src={closeIcon} alt="Close Icon" />*/}
-            {/*            </button>*/}
-            {/*        </div>*/}
-            {/*        <img src={imageRules} alt="Game Rules" />*/}
-            {/*        <button className="mobile__button" onClick={toggleModal}>*/}
-            {/*                <img src={closeIcon} alt="Close Icon" />*/}
-            {/*        </button>*/}
-            {/*    </Modal>*/}
-            {/*) : null }*/}
             <Modal
                 isShowing={isShowing}
                 hide={toggle}

@@ -54,6 +54,7 @@ function Play(props) {
         } else {
             setResultMessage("Draw");
         }
+        // props.saveScore(currentScore);
     }
 
     function setMyPickIcon(pick) {
